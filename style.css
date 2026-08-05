@@ -1,0 +1,1143 @@
+/* ==========================================================================
+   デザイン変数 (Color & Theme)
+   ========================================================================== */
+   :root {
+    --deep-green: #1b3022;   /* メイン：深い森の緑 */
+    --gold: #c5a059;         /* アクセント：シャンパンゴールド */
+    --soft-beige: #f8f6f2;   /* 背景：温かみのあるベージュ */
+    --section-warm: #f1ede4; /* セクション背景：一段濃いベージュ */
+    --text-main: #2c2c2c;    /* 本文：柔らかい黒 */
+    --white: #ffffff;
+}
+
+/* ==========================================================================
+   共通設定 (Base)
+   ========================================================================== */
+body {
+    background-color: var(--soft-beige);
+    color: var(--text-main);
+    font-family: 'Shippori Mincho', serif;
+    line-height: 2.0;
+    overflow-x: hidden; /* アニメーション時のはみ出し防止 */
+}
+
+/* テキスト選択時の色 */
+::selection {
+    background-color: var(--gold);
+    color: var(--white);
+}
+
+/* ==========================================================================
+   ナビゲーション (Navbar)
+   ========================================================================== */
+.navbar {
+    background-color: var(--deep-green);
+    padding: 1.2rem 0;
+    transition: background-color 0.5s ease;
+}
+
+.navbar-brand {
+    color: var(--gold) !important;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.nav-link {
+    color: var(--white) !important;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    margin: 0 12px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, 
+.nav-link.active {
+    color: var(--gold) !important;
+}
+
+.btn-nav-reserve {
+  border: 1px solid var(--gold);
+  padding: 6px 14px;
+  margin-left: 10px;
+  color: var(--gold) !important;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+.btn-nav-reserve:hover {
+  background-color: var(--gold);
+  color: var(--white) !important;
+}
+
+
+/* デスクトップ用ホバー下線アニメーション */
+@media (min-width: 992px) {
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: var(--gold);
+        transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+        width: 100%;
+    }
+}
+
+/* ハンバーガーメニューの色設定 */
+.navbar-toggler {
+  border-color: var(--gold);
+  padding: 0.5rem;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(197, 160, 89, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem rgba(197, 160, 89, 0.25);
+  outline: none;
+}
+
+/* ==========================================================================
+   ヒーローエリア (Hero Section)
+   ========================================================================== */
+.hero {
+    background: linear-gradient(rgba(27, 48, 34, 0.5), rgba(27, 48, 34, 0.5)), 
+                url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+}
+
+.hero h1 {
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Welcomeセクション独自の調整 */
+.welcome {
+  /* 真っ白ではなく、肌色に近い極めて淡いベージュ */
+  background-color: #faf8f3; 
+  /* わずかにセクションの上下に余白を広げ、ゆとりを持たせる */
+  padding: 120px 0 !important;
+}
+
+/* 本文の読みやすさと質感 */
+.welcome-text {
+  font-size: 1.15rem;
+  line-height: 2.2;
+  letter-spacing: 0.05em;
+  color: #3e4a3d; /* 真っ黒ではなく、深い緑を混ぜたグレー */
+}
+
+/* リンクを「ボタン」ではなく「洗練された線」で表現 */
+.btn-outline-gold {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--gold);
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+  color: var(--deep-green);
+  border-bottom-color: var(--deep-green);
+  padding-left: 10px; /* 少し右に動く遊び心 */
+}
+
+/* ==========================================================================
+   ボタン (Buttons)
+   ========================================================================== */
+.btn-massage {
+    background-color: transparent;
+    color: var(--gold) !important;
+    border: 1px solid var(--gold);
+    padding: 16px 45px;
+    border-radius: 0; /* 高級感を出すため角は丸めない */
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-massage:hover {
+    background-color: var(--gold);
+    color: var(--white) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* ==========================================================================
+   セクション共通 (Sections)
+   ========================================================================== */
+section {
+    padding: 100px 0;
+}
+
+.bg-deep {
+    background-color: var(--deep-green);
+}
+
+h2 {
+    color: var(--deep-green);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* タイトル下の金色の線 */
+.text-center h2::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background-color: var(--gold);
+}
+
+/* ==========================================================================
+   こだわりセクション (Features - 互い違いレイアウト)
+   ========================================================================== */
+.text-gold {
+    color: var(--gold);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.img-fluid {
+    filter: brightness(0.95);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transition: filter 0.6s ease;
+}
+
+.img-fluid:hover {
+    filter: brightness(1.05);
+}
+
+/* こだわりセクション全体の背景と境界 */
+.section-features {
+  background-color: #f1ede4; /* 前のセクションより少し濃いベージュ */
+  padding: 140px 0;
+  position: relative;
+  border-top: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+/* 各こだわりの間隔 */
+.mb-feature {
+  margin-bottom: 120px;
+}
+.mb-feature:last-child {
+  margin-bottom: 0;
+}
+
+/* 背景に浮かぶ装飾用の大きな数字 */
+.bg-number {
+  position: absolute;
+  top: -60px;
+  right: 20px;
+  font-size: 12rem; /* さらに大きくして迫力を出す */
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5); /* 透過した白 */
+  z-index: 0;
+  font-family: 'Georgia', serif;
+  pointer-events: none; /* 画像クリックの邪魔をしない */
+}
+.bg-number.left {
+  right: auto;
+  left: 20px;
+}
+
+/* 画像とテキストの微調整 */
+.custom-img {
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255,255,255,0.8);
+}
+
+.feature-desc {
+  color: #4a4a4a;
+  font-size: 1.05rem;
+  line-height: 2.2;
+  text-align: justify; /* 両端揃えで美しく */
+}
+
+/* モバイル対応の調整 */
+@media (max-width: 767px) {
+  .bg-number {
+      font-size: 8rem;
+      top: -40px;
+  }
+  .mb-feature {
+      margin-bottom: 80px;
+  }
+}
+
+#benefits {
+  background-color: var(--soft-beige);
+}
+
+
+/* 効果効能リストの装飾 */
+/* Massageカード */
+.massage-card {
+  border-top: 3px solid var(--deep-green);
+  background-color: #e8ebe7; /* 例：淡い深緑 */
+}
+
+.aroma-card {
+  border-top: 3px solid var(--gold);
+  background-color: #f5efe3; /* 例：淡いゴールド */
+}
+
+
+#benefits ul li {
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+#benefits ul li::before {
+  content: "🌸"; /* または、お好みの記号 */
+  position: absolute;
+  left: 0;
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   初めての方へセクション (First Time Section)
+   ========================================================================== */
+   #first-time {
+    background-color: #fff;
+    border-top: 1px solid rgba(197, 160, 89, 0.15);
+  }
+  
+  /* ステップ番号のデザイン */
+  .step-number {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold) 0%, #d4b575 100%);
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 10px 25px rgba(197, 160, 89, 0.2);
+    transition: all 0.4s ease;
+  }
+  
+  .step-number:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 35px rgba(197, 160, 89, 0.3);
+  }
+  
+  /* リンク装飾 */
+  .link-gold {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .link-gold:hover {
+    color: var(--deep-green);
+    border-bottom-color: var(--deep-green);
+    padding-left: 8px;
+  }
+  
+  /* モバイル対応 */
+  @media (max-width: 767px) {
+      /* 初めての方へ：ステップ番号をモバイルで少し小さく */
+      .step-number {
+          width: 60px;
+          height: 60px;
+          line-height: 60px;
+          font-size: 1.4rem;
+      }
+  }
+
+/* お客様の声カードのホバー */
+#voice-digest .bg-white {
+  transition: transform 0.3s ease;
+}
+
+#voice-digest .bg-white:hover {
+  transform: translateY(-5px);
+}
+
+.menu-digest {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 60px 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* ==========================================================================
+   SNS・ソーシャルメディア関連
+   ========================================================================== */
+
+/* フッターのSNSエリア */
+.sns-area {
+  border-top: 1px solid rgba(197, 160, 89, 0.2);
+  padding-top: 30px;
+}
+
+.sns-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.sns-line {
+  background-color: #06C755;
+  color: white;
+}
+
+.sns-line:hover {
+  background-color: #05b04b;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(6, 199, 85, 0.3);
+}
+
+.sns-instagram {
+  background: linear-gradient(45deg, #FD5949, #D6249F, #285AEB);
+  color: white;
+}
+
+.sns-instagram:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(214, 36, 159, 0.3);
+}
+
+/* トップページのSNSカード */
+#sns-reservation {
+  background-color: #fff;
+  border-top: 1px solid rgba(197, 160, 89, 0.1);
+}
+
+.sns-card {
+  background: linear-gradient(135deg, #fdfbf7 0%, #f8f6f2 100%);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.sns-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  border-color: var(--gold);
+}
+
+.sns-card-icon {
+  margin-bottom: 20px;
+}
+
+/* LINEボタン */
+.btn-line {
+  background-color: #06C755;
+  color: white;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 30px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: all 0.4s ease;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.btn-line:hover {
+  background-color: #05b04b;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(6, 199, 85, 0.3);
+}
+
+/* Instagramボタン */
+.btn-instagram {
+  background: linear-gradient(45deg, #FD5949, #D6249F, #285AEB);
+  color: white;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 30px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: all 0.4s ease;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.btn-instagram:hover {
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(214, 36, 159, 0.4);
+  filter: brightness(1.1);
+}
+
+/* モバイル対応 */
+@media (max-width: 767px) {
+  .sns-card {
+      padding: 30px 20px;
+  }
+  
+  .sns-icon {
+      width: 45px;
+      height: 45px;
+  }
+}
+
+/* ACCESSページのLINE誘導バナー */
+.line-banner {
+  background: linear-gradient(135deg, #f0ffe8 0%, #e8f9e0 100%);
+  border: 2px solid #06C755;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(6, 199, 85, 0.1);
+  transition: all 0.4s ease;
+}
+
+.line-banner:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(6, 199, 85, 0.2);
+}
+
+@media (max-width: 767px) {
+  .line-banner {
+      padding: 20px;
+  }
+}
+
+/* ==========================================================================
+   JavaScript連動アニメーション (Scroll Reveal)
+   ========================================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.5s ease, transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 交互に少しだけ遅延させてリズムを作る */
+.reveal:nth-child(even) {
+    transition-delay: 0.15s;
+}
+
+/* ==========================================================================
+   フッター (Footer)
+   ========================================================================== */
+footer {
+    background-color: var(--deep-green); /* 深い緑に変更 */
+    color: var(--white); /* 文字を白に */
+    border-top: 4px solid var(--gold); /* ゴールドの線をアクセントに */
+}
+
+footer a {
+    color: var(--white); /* リンクも白に */
+}
+
+footer a:hover {
+    color: var(--gold);
+}
+
+footer .opacity-50 {
+    color: var(--gold) !important; /* コピーライトをゴールドにすると高級感アップ */
+}
+
+/* ==========================================================================
+   モバイル対応 (Mobile Specific)
+   ========================================================================== */
+@media (max-width: 767px) {
+    section {
+        padding: 60px 0;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    /* モバイルでのテキスト配置を中央寄せに */
+    .col-md-5 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* モバイル追従ボタンの影を強化 */
+    .fixed-bottom {
+        background-color: rgba(255, 255, 255, 0.98) !important;
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.08) !important;
+    }
+}
+
+.menu-digest {
+  background-color: #faf8f3;
+}
+
+/* --- メニューページ --- */
+
+.menu-hero {
+  background: 
+      linear-gradient(to bottom, 
+          rgba(27, 48, 34, 0.9) 0%, 
+          rgba(253, 251, 247, 0) 50%, 
+          #fdfbf7 100%),
+      url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80'); /* タオルと緑の葉の落ち着いた画像 */
+  
+  background-size: cover;
+  background-position: center;
+  padding: 120px 0;
+  position: relative;
+}
+
+/* タイトルの文字が画像に埋もれないよう、少し影をつける */
+.menu-hero h1 {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.15em;
+}
+
+.menu-category h2 {
+  color: var(--deep-green);
+  letter-spacing: 0.1em;
+}
+
+.menu-item {
+  border-bottom: 1px dotted #ccc; /* メニューと料金をつなぐ点線 */
+  padding-bottom: 10px;
+}
+
+.menu-title {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.menu-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* オプションメニュー全体の枠組み */
+.option-section {
+  background-color: #f1ede4; /* ベージュ背景 */
+  padding: 4rem 2rem;
+  border-top: 3px solid var(--deep-green); /* ご指定のアクセントライン */
+  border-radius: 10px 10px 30px 30px; /* 下側だけ少し角を丸める（お好みで） */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* 軽い影で浮遊感を出す */
+}
+
+/* オプションタイトルの調整 */
+.option-section h2 {
+  color: var(--deep-green);
+}
+
+/* オプションカードの装飾 */
+.option-card {
+  border: 1px solid rgba(197, 160, 89, 0.2); /* 繊細なゴールドの縁 */
+  background-color: var(--white);
+  padding: 2rem 1.5rem;
+  height: 100%;
+  transition: all 0.4s ease;
+}
+
+.option-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(197, 160, 89, 0.1);
+}
+
+/* 固定バー用のゴールド枠線 */
+.border-top-gold {
+  border-top: 2px solid var(--gold) !important;
+}
+
+/* スマホ固定バーのボタン（ゴールド） */
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--deep-green);
+  font-weight: bold;
+  border: none;
+}
+
+/* 初回限定価格表示 */
+.badge-first-time {
+  display: inline-block;
+  background: linear-gradient(135deg, #f8f6f2 0%, #f1ede4 100%);
+  border: 2px solid var(--gold);
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--deep-green);
+  letter-spacing: 0.05em;
+  box-shadow: 0 5px 15px rgba(197, 160, 89, 0.2);
+}
+
+.menu-price-group {
+  min-width: 160px;
+}
+
+.menu-price-original {
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.badge-first-small {
+  display: inline-block;
+  background-color: var(--gold);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* モバイル対応 */
+@media (max-width: 767px) {
+  .menu-item {
+      flex-direction: column;
+      align-items: flex-start !important;
+  }
+  
+  .menu-price-group {
+      margin-top: 10px;
+      width: 100%;
+      text-align: left !important;
+  }
+  
+  .menu-price {
+      font-size: 1.2rem;
+  }
+  
+  .badge-first-time {
+      font-size: 0.9rem;
+      padding: 10px 20px;
+  }
+}
+
+/* フッター用リンクの修正 */
+.nav-link-f {
+  color: white; /* 背景が明るいので、濃い色を指定 */
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+/* ホバーした時はゴールドにふわっと変わる */
+.nav-link-f:hover {
+  color: var(--gold);
+}
+
+/* リンク同士の間に細い棒線を入れるとさらにプロっぽくなります（任意） */
+.list-inline-item:not(:last-child) {
+  border-right: 1px solid rgba(27, 48, 34, 0.2);
+  padding-right: 15px;
+}
+
+/* 予約エリアの装飾 */
+.reserve-area {
+  padding-top: 20px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+/* VOICE ヒーローエリア（MENUと色調を合わせる） */
+.voice-hero {
+  background: 
+      linear-gradient(to bottom, rgba(27, 48, 34, 0.9) 0%, rgba(253, 251, 247, 0) 50%, #fdfbf7 100%),
+      url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  padding: 120px 0;
+}
+
+/* ボイスカード */
+.voice-card {
+  background: #fff;
+  /* 角を少し丸くし、ごく薄いゴールドの枠線をつける */
+  border-radius: 15px; 
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  /* 影を広く、薄くして「柔らかさ」を出す */
+  box-shadow: 0 15px 35px rgba(27, 48, 34, 0.05); 
+  padding: 2.5rem !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 引用マークを背景にそっと添える */
+.voice-card::before {
+  content: "“";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 8rem;
+  color: rgba(197, 160, 89, 0.1); /* 10%の薄いゴールド */
+  font-family: serif;
+}
+
+/* ラベル（タグ）のデザイン */
+.badge-voice {
+  background: #f1ede4;
+  color: #555;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.badge-voice.highlight {
+  background: rgba(197, 160, 89, 0.1);
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.voice-text {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* ABOUT ヒーローエリア */
+.about-hero {
+  background: 
+      linear-gradient(to bottom, rgba(27, 48, 34, 0.9) 0%, rgba(253, 251, 247, 0) 50%, #fdfbf7 100%),
+      url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  padding: 120px 0;
+}
+
+.about-hero h1 {
+  text-shadow: 
+    -1px -1px 0 var(--gold),
+    1px -1px 0 var(--gold),
+    -1px 1px 0 var(--gold),
+    1px 1px 0 var(--gold),
+    0 0 10px rgba(0,0,0,0.5);
+}
+
+/* プロフィール写真の装飾 */
+.profile-img-container {
+  position: relative;
+  padding: 15px;
+  display: inline-block;
+}
+
+.profile-photo {
+  border-radius: 20px;
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+}
+
+.profile-decoration {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 90%;
+  height: 90%;
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  z-index: 1;
+}
+
+/* こだわりセクションの枠線 */
+.border-gold-light {
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.border-gold-light:hover {
+  border-color: var(--gold);
+  background-color: #fdfbf7;
+}
+
+/* テキストカラーの補正 */
+.text-deep { color: var(--deep-green); }
+
+/* メッセージセクションに「巡り」を表現する装飾を追加 */
+.bg-flow-decoration {
+  background-color: #fdfbf7;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* 背景に配置する薄い円（巡りのイメージ） */
+.bg-flow-decoration::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, rgba(253, 251, 247, 0) 70%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* 手書き風メッセージの設定 */
+.handwritten-message {
+  font-family: 'Klee One', cursive; /* 手書き風フォント適用 */
+  color: #444;
+  line-height: 1.8;
+  background-color: rgba(253, 251, 247, 0.5); /* 非常に薄いベージュ背景で手紙感を出す */
+  padding: 20px;
+  border-radius: 15px;
+  display: inline-block;
+  text-align: left; /* 中身は左揃えにして読みやすく */
+}
+
+/* スマホでは文字を少し大きくして読みやすく */
+@media (max-width: 767px) {
+  .handwritten-message {
+      font-size: 1rem;
+      padding: 15px;
+  }
+}
+
+/* 署名部分の遊び心 */
+.signature-text {
+  font-size: 1.2rem;
+  color: var(--gold);
+  transform: rotate(-1deg); /* わずかに傾けて手書き感を強調 */
+  display: block;
+  margin-top: 20px;
+}
+
+/* プロフィール写真のモバイル対応：スマホでは少し小さくしてバランスをとる */
+@media (max-width: 767px) {
+  .profile-img-container {
+      max-width: 250px;
+      margin: 0 auto 30px; /* 中央寄せ */
+  }
+}
+
+/* ==========================================================================
+   ACCESSページ専用スタイル
+   ========================================================================== */
+
+/* ACCESS ヒーローエリア */
+.access-hero {
+  background: 
+    linear-gradient(to bottom, rgba(27, 48, 34, 0.9) 0%, rgba(253, 251, 247, 0) 50%, #fdfbf7 100%),
+    url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  padding: 120px 0;
+}
+
+/* サロン情報カード */
+.info-card {
+  background-color: #faf8f3;
+  border-radius: 15px;
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.info-card th {
+  font-weight: 600;
+  padding: 12px 0;
+  font-size: 0.9rem;
+}
+
+.info-card td {
+  padding: 12px 0;
+  line-height: 1.8;
+}
+
+/* Googleマップコンテナ */
+.map-container {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* 道案内カード */
+.direction-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  height: 100%;
+}
+
+.direction-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.direction-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.direction-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.direction-card:hover .direction-img-wrapper img {
+  transform: scale(1.1);
+}
+
+.direction-number {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--gold) 0%, #d4b575 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
+}
+
+.direction-content {
+  padding: 20px;
+}
+
+/* 予約の流れカード */
+.flow-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  position: relative;
+  border: 1px solid rgba(197, 160, 89, 0.15);
+  transition: all 0.4s ease;
+}
+
+.flow-card:hover {
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+}
+
+.flow-step {
+  position: absolute;
+  top: -15px;
+  left: 40px;
+  background: linear-gradient(135deg, var(--deep-green) 0%, #2d4d3a 100%);
+  color: var(--gold);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  box-shadow: 0 5px 15px rgba(27, 48, 34, 0.2);
+}
+
+.flow-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+/* FAQ（アコーディオン） */
+.accordion-item {
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  margin-bottom: 15px;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+
+.accordion-button {
+  background-color: #faf8f3;
+  color: var(--deep-green);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 20px 25px;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--gold);
+  color: white;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(197, 160, 89, 0.3);
+}
+
+.accordion-button::after {
+  filter: brightness(0) saturate(100%) invert(24%) sepia(15%) saturate(1518%) hue-rotate(94deg) brightness(93%) contrast(92%);
+}
+
+.accordion-button:not(.collapsed)::after {
+  filter: brightness(0) saturate(100%) invert(100%);
+}
+
+.accordion-body {
+  padding: 25px;
+  background-color: white;
+  line-height: 1.9;
+  color: #555;
+}
+
+/* モバイル対応 */
+@media (max-width: 767px) {
+  .flow-card {
+      padding: 30px 20px;
+  }
+
+  .flow-step {
+      left: 20px;
+      font-size: 0.75rem;
+      padding: 6px 15px;
+  }
+
+  .flow-icon {
+      font-size: 3rem;
+  }
+
+  .direction-img-wrapper {
+      height: 180px;
+  }
+}
